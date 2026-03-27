@@ -67,6 +67,13 @@ fastify.register(proxy, {
   rewritePrefix: '/tts'
 });
 
+import { register } from 'prom-client';
+
+// Metrics endpoint (internal)
+fastify.get('/metrics', async (request, reply) => {
+  return reply.send(await register.metrics());
+});
+
 // Proxy to Streaming Service (V1)
 fastify.register(proxy, {
   upstream: process.env.STREAMING_SERVICE_URL || 'http://localhost:3003',

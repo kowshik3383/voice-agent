@@ -48,6 +48,12 @@ fastify.register(async function (fastify) {
   });
 });
 
+import { register } from 'prom-client';
+
+fastify.get('/metrics', async (request, reply) => {
+  return reply.send(await register.metrics());
+});
+
 const start = async () => {
   try {
     await fastify.listen({ port: 3003, host: '0.0.0.0' });

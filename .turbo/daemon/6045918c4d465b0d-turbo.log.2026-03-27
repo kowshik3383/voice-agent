@@ -137,3 +137,29 @@
 2026-03-27T16:16:48.335395Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
 2026-03-27T16:17:12.935611Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/shared-types/src/index.ts")}
 2026-03-27T16:17:12.935648Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/shared-types"), path: AnchoredSystemPathBuf("packages/shared-types") }}))
+2026-03-27T16:30:46.214115Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("infra/grafana/provisioning/datasources/datasource.yml"), AnchoredSystemPathBuf("infra/grafana/provisioning"), AnchoredSystemPathBuf("infra/grafana/provisioning/dashboards/dashboard.yml"), AnchoredSystemPathBuf("infra/prometheus"), AnchoredSystemPathBuf("infra/prometheus/prometheus.yml"), AnchoredSystemPathBuf("infra/grafana/provisioning/dashboards"), AnchoredSystemPathBuf("infra/grafana/provisioning/datasources"), AnchoredSystemPathBuf("infra/grafana")}
+2026-03-27T16:30:46.214130Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T16:30:47.014002Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("infra/prometheus/prometheus.yml")}
+2026-03-27T16:30:47.014020Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T16:30:49.114646Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("infra/grafana/provisioning/datasources/datasource.yml")}
+2026-03-27T16:30:49.114662Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T16:31:19.515013Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("docker-compose.yml")}
+2026-03-27T16:31:19.515036Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T16:31:21.534102Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/api-gateway/src/index.ts")}
+2026-03-27T16:31:21.551551Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/api-gateway"), path: AnchoredSystemPathBuf("apps/api-gateway") }}))
+2026-03-27T16:31:23.013475Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/tts-service/src/index.ts")}
+2026-03-27T16:31:23.013496Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-service"), path: AnchoredSystemPathBuf("apps/tts-service") }}))
+2026-03-27T16:31:25.014573Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("services/coqui-engine/main.py")}
+2026-03-27T16:31:25.014617Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T16:31:33.913253Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("services/coqui-engine/requirements.txt")}
+2026-03-27T16:31:33.913274Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T16:31:35.914018Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("services/voice-training-service/requirements.txt")}
+2026-03-27T16:31:35.914036Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T16:31:47.913180Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/api-gateway/package.json")}
+2026-03-27T16:31:47.913223Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/api-gateway"), path: AnchoredSystemPathBuf("apps/api-gateway") }}))
+2026-03-27T16:31:50.013458Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/tts-service/package.json")}
+2026-03-27T16:31:50.013502Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-service"), path: AnchoredSystemPathBuf("apps/tts-service") }}))
+2026-03-27T16:31:52.014147Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/streaming-service/src/index.ts")}
+2026-03-27T16:31:52.014162Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/streaming-service"), path: AnchoredSystemPathBuf("apps/streaming-service") }}))
+2026-03-27T16:31:53.713829Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("services/voice-training-service/main.py")}
+2026-03-27T16:31:53.713845Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))

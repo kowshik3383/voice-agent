@@ -14,7 +14,8 @@
     "ioredis": "^5.3.2",
     "fastify": "^4.21.0",
     "zod": "^3.21.4",
-    "pino": "^8.14.1"
+    "pino": "^8.14.1",
+    "prom-client": "^14.2.0"
   },
   "devDependencies": {
     "typescript": "^5.1.6",

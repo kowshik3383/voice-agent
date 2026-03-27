@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: ['api-gateway:3000']
+
+  - job_name: 'tts-service'
+    static_configs:
+      - targets: ['tts-service:3002']
+
+  - job_name: 'streaming-service'
+    static_configs:
+      - targets: ['streaming-service:3003']
+
+  - job_name: 'voice-training-service'
+    static_configs:
+      - targets: ['voice-training-service:8002']
+
+  - job_name: 'coqui-engine'
+    static_configs:
+      - targets: ['coqui-engine:8000']

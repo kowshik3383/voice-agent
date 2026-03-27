@@ -57,6 +57,12 @@ async def synthesize(request: TTSRequest):
         print(f"Error during synthesis: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+from prometheus_client import make_asgi_app
+
+# Metrics
+metrics_app = make_asgi_app()
+app.mount("/metrics", metrics_app)
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

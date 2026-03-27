@@ -68,6 +68,12 @@ fastify.post('/tts', async (request, reply) => {
   }
 });
 
+import { register } from 'prom-client';
+
+fastify.get('/metrics', async (request, reply) => {
+  return reply.send(await register.metrics());
+});
+
 const start = async () => {
   try {
     await fastify.listen({ port: 3002, host: '0.0.0.0' });

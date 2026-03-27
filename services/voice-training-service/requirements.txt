@@ -8,3 +8,4 @@ ffmpeg-python
 numpy
 scipy
 psycopg2-binary
+prometheus-client

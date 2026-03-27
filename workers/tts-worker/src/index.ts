@@ -17,19 +17,61 @@ const minio = new Minio.Client({
   secretKey: process.env.MINIO_SECRET_KEY || 'minioadmin'
 });
 
+import { prisma } from '@voice-platform/database';
+
 const orchestrator = new TTSOrchestrator();
 orchestrator.registerEngine(new CoquiAdapter(process.env.COQUI_URL || 'http://localhost:8000'));
 orchestrator.registerEngine(new BarkAdapter(process.env.BARK_URL || 'http://localhost:8001'));
 
 const worker = new Worker('tts-queue', async (job: Job<SpeechConfig>) => {
   const { text, ...config } = job.data;
-  logger.info({ jobId: job.id }, 'Processing TTS job');
+  logger.info({ jobId: job.id, voiceId: config.voiceId }, 'Processing TTS job');
+
+  // Fetch Voice from DB
+  const voice = await prisma.voice.findUnique({
+    where: { id: config.voiceId }
+  });
+
+  let embeddingData = {};
+  if (voice?.embeddingPath && voice.status === 'ready') {
+    logger.info({ voiceId: voice.id }, 'Fetching XTTS embedding from MinIO');
+    try {
+      const stream = await minio.getObject('voice-platform', voice.embeddingPath);
+      const chunks: Buffer[] = [];
+      for await (const chunk of stream) {
+        chunks.push(chunk);
+      }
+      const embeddingBuffer = Buffer.concat(chunks);
+      
+      // We need to split the combined .pth file back into cond_latent and speaker_embedding
+      // Actually, my coqui-engine expects the whole .pth content to be loaded via torch.load
+      // So I'll just pass the whole thing if I can, but the coqui-engine I wrote expects two separate fields.
+      // Wait, let's look at coqui-engine/main.py again.
+      // It expects speaker_embedding_b64 and gpt_cond_latent_b64.
+      // My voice-training-service saves them as: {"gpt_cond_latent": ..., "speaker_embedding": ...}
+      
+      // I'll update the coqui-engine to just accept one 'embedding_b64' field if it's easier, or I can parse it here.
+      // Better to parse it in the worker or just pass the whole thing and let coqui-engine handle it.
+      // Let's stick to the current plan and pass it as one if I update coqui-engine.
+      
+      // Actually, I'll update coqui-engine/main.py to accept ONE 'embedding_b64' field.
+      embeddingData = {
+        embedding_b64: embeddingBuffer.toString('base64')
+      };
+    } catch (err) {
+      logger.error({ err, voiceId: voice.id }, 'Failed to fetch embedding');
+    }
+  }
 
   const chunks = chunkText(text);
   
   for (let i = 0; i < chunks.length; i++) {
     const chunk = chunks[i];
-    const chunkConfig = { ...config, text: chunk };
+    const chunkConfig = { 
+      ...config, 
+      text: chunk,
+      ...embeddingData
+    };
     const chunkHash = generateHash([chunk, config.voiceId, config.emotion || 'neutral']);
     const objectName = `chunks/${chunkHash}.wav`;
 

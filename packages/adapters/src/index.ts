@@ -11,7 +11,12 @@ export class CoquiAdapter implements TTSEngine {
   }
 
   async synthesize(config: SpeechConfig): Promise<Buffer> {
-    const response = await axios.post(`${this.baseUrl}/tts`, config, {
+    const response = await axios.post(`${this.baseUrl}/tts`, {
+      text: config.text,
+      voiceId: config.voiceId,
+      embedding_b64: (config as any).embedding_b64,
+      language: config.language || 'en'
+    }, {
       responseType: 'arraybuffer',
     });
     return Buffer.from(response.data);

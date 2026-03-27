@@ -16,3 +16,16 @@ model ApiKey {
 
   @@map("api_keys")
 }
+
+model Voice {
+  id            String   @id @default(uuid())
+  name          String
+  engine        String   @default("coqui")
+  status        String   @default("processing") // "processing", "ready", "failed"
+  speakerId     String?  @map("speaker_id")
+  embeddingPath String?  @map("embedding_path")
+  previewUrl    String?  @map("preview_url")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("voices")
+}

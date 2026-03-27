@@ -5,6 +5,10 @@ export interface SpeechConfig {
   voiceId: string;
   emotion?: Emotion;
   speed?: number;
+  language?: string;
+  embedding_b64?: string;
+  speaker_embedding_b64?: string;
+  gpt_cond_latent_b64?: string;
 }
 
 export interface TTSJob {

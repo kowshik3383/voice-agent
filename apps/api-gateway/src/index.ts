@@ -53,6 +53,13 @@ fastify.register(proxy, {
   rewritePrefix: '/agent'
 });
 
+// Proxy to Voice Training Service (V1)
+fastify.register(proxy, {
+  upstream: process.env.VOICE_TRAINING_SERVICE_URL || 'http://localhost:8002',
+  prefix: '/v1/voices',
+  rewritePrefix: '' // Directly call /clone etc on the training service
+});
+
 // Proxy to TTS Service (V1)
 fastify.register(proxy, {
   upstream: process.env.TTS_SERVICE_URL || 'http://localhost:3002',

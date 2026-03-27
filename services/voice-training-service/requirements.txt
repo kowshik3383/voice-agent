@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-multipart
+torch
+TTS
+minio
+ffmpeg-python
+numpy
+scipy
+psycopg2-binary

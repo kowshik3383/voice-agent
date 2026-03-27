@@ -1,45 +1,19 @@
 import Fastify from 'fastify';
-import { z } from 'zod';
 import pino from 'pino';
 
 const logger = pino();
 const fastify = Fastify({ logger: true });
 
-const GenerateSchema = z.object({
-  prompt: z.string().min(1)
-});
-
-fastify.post('/generate', async (request, reply) => {
-  try {
-    const { prompt } = GenerateSchema.parse(request.body);
-    
-    const responseText = `You said: ${prompt}. How can I assist you further?`;
-    
-    return {
-      data: {
-        text: responseText,
-        voice_id: 'p225',
-        emotion: 'neutral',
-        speed: 1.0
-      }
-    };
-  } catch (err) {
-    if (err instanceof z.ZodError) {
-      return reply.status(400).send({
-        error: {
-          message: 'Validation failed',
-          type: 'invalid_request_error',
-          details: err.errors
-        }
-      });
-    }
-    return reply.status(500).send({
-      error: {
-        message: 'Internal server error',
-        type: 'server_error'
-      }
-    });
-  }
+fastify.post('/agent/chat', async (request, reply) => {
+  const { message, sessionId } = request.body as any;
+  
+  // Simple mock agent logic
+  // In a real system, this would call an LLM
+  return {
+    text: `You said: ${message}. How can I help you further?`,
+    voiceId: 'default', // Can be dynamic based on user profile or agent persona
+    emotion: 'happy'
+  };
 });
 
 const start = async () => {

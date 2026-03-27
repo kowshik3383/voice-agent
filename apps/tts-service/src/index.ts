@@ -16,12 +16,32 @@ const TTSSchema = z.object({
   speed: z.number().min(0.5).max(2.0).optional()
 });
 
+import { prisma } from '@voice-platform/database';
+
 fastify.post('/tts', async (request, reply) => {
   try {
     const speechConfig = TTSSchema.parse(request.body);
     
+    // Validate voice exists
+    if (speechConfig.voice_id !== 'default') {
+      const voice = await prisma.voice.findUnique({
+        where: { id: speechConfig.voice_id }
+      });
+      if (!voice) {
+        return reply.status(404).send({
+          error: {
+            message: 'Voice not found',
+            type: 'invalid_request_error'
+          }
+        });
+      }
+    }
+
     const jobId = `tts-${Date.now()}`;
-    await ttsQueue.add('synthesize', speechConfig, { jobId });
+    await ttsQueue.add('synthesize', {
+      ...speechConfig,
+      voiceId: speechConfig.voice_id // Map voice_id from request to voiceId in SpeechConfig
+    }, { jobId });
 
     return {
       data: {

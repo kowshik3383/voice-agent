@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+coqui-tts
+torch
+pydantic

@@ -1,0 +1,19 @@
+FROM node:18-slim as base
+WORKDIR /app
+COPY package.json .
+COPY tsconfig.base.json .
+COPY packages/ ./packages/
+
+FROM base as build
+ARG SERVICE_NAME
+COPY apps/${SERVICE_NAME}/ ./apps/${SERVICE_NAME}/
+RUN npm install
+RUN npm run build -w apps/${SERVICE_NAME}
+
+FROM node:18-slim
+WORKDIR /app
+ARG SERVICE_NAME
+COPY --from=build /app/apps/${SERVICE_NAME}/dist ./dist
+COPY --from=build /app/apps/${SERVICE_NAME}/package.json ./
+RUN npm install --production
+CMD ["node", "dist/index.js"]

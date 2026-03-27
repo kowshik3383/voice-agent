@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: voice_platform
+
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.node
+      args:
+        SERVICE_NAME: api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - AGENT_SERVICE_URL=http://agent-service:3001
+      - TTS_SERVICE_URL=http://tts-service:3002
+      - STREAMING_SERVICE_URL=http://streaming-service:3003
+      - DATABASE_URL=postgresql://user:pass@postgres:5432/voice_platform
+
+  agent-service:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.node
+      args:
+        SERVICE_NAME: agent-service
+    ports:
+      - "3001:3001"
+
+  tts-service:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.node
+      args:
+        SERVICE_NAME: tts-service
+    ports:
+      - "3002:3002"
+    environment:
+      - REDIS_URL=redis://redis:6379
+
+  streaming-service:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.node
+      args:
+        SERVICE_NAME: streaming-service
+    ports:
+      - "3003:3003"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MINIO_ENDPOINT=minio
+      - MINIO_PORT=9000
+
+  tts-worker:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.node
+      args:
+        SERVICE_NAME: tts-worker
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MINIO_ENDPOINT=minio
+      - MINIO_PORT=9000
+      - COQUI_URL=http://coqui-engine:8000
+      - BARK_URL=http://bark-engine:8001
+
+  coqui-engine:
+    build: services/coqui-engine
+    ports:
+      - "8000:8000"
+
+  bark-engine:
+    build: services/bark-engine
+    ports:
+      - "8001:8001"

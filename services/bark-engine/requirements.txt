@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+bark
+numpy
+scipy
+torch
+pydantic

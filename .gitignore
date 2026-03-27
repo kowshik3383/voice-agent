@@ -1,0 +1,42 @@
+# Node
+node_modules/
+dist/
+.env
+.env.*
+npm-debug.log*
+yarn-debug.log*
+pnpm-lock.yaml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+
+# Docker
+*.tar
+
+# Build outputs
+coverage/
+.tmp/
+
+# Redis dump
+dump.rdb
+
+# MinIO data
+minio-data/
+
+# Audio files
+*.wav
+*.mp3
+*.ogg
+
+# Secrets
+secrets/

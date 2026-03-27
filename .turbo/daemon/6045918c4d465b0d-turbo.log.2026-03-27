@@ -1,0 +1,92 @@
+2026-03-27T15:48:45.975756Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/1.cookie")}
+2026-03-27T15:48:45.975781Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:48:50.676511Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/shared-types/tsconfig.json")}
+2026-03-27T15:48:50.676526Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/shared-types"), path: AnchoredSystemPathBuf("packages/shared-types") }}))
+2026-03-27T15:48:52.176908Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/tts-core/tsconfig.json")}
+2026-03-27T15:48:52.176927Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-core"), path: AnchoredSystemPathBuf("packages/tts-core") }}))
+2026-03-27T15:48:54.175755Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/audio-utils/tsconfig.json")}
+2026-03-27T15:48:54.175774Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/audio-utils"), path: AnchoredSystemPathBuf("packages/audio-utils") }}))
+2026-03-27T15:48:55.575918Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/adapters/tsconfig.json")}
+2026-03-27T15:48:55.575931Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/adapters"), path: AnchoredSystemPathBuf("packages/adapters") }}))
+2026-03-27T15:48:56.977187Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("workers/tts-worker/tsconfig.json")}
+2026-03-27T15:48:56.977201Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-worker"), path: AnchoredSystemPathBuf("workers/tts-worker") }}))
+2026-03-27T15:48:58.676527Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/shared-types/package.json")}
+2026-03-27T15:48:58.676873Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/shared-types"), path: AnchoredSystemPathBuf("packages/shared-types") }}))
+2026-03-27T15:49:01.376791Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_5870_a39a260f9e45a578c1b8ef148649f017")}
+2026-03-27T15:49:01.376812Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:49:03.576044Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.2993485671")}
+2026-03-27T15:49:03.576064Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:49:05.876837Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/database/dist"), AnchoredSystemPathBuf("packages/database/.turbo")}
+2026-03-27T15:49:05.876852Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/database"), path: AnchoredSystemPathBuf("packages/database") }}))
+2026-03-27T15:49:08.177609Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/audio-utils/.turbo"), AnchoredSystemPathBuf("apps/tts-service/.turbo"), AnchoredSystemPathBuf("apps/agent-service/.turbo"), AnchoredSystemPathBuf("apps/streaming-service/.turbo"), AnchoredSystemPathBuf("apps/api-gateway/.turbo"), AnchoredSystemPathBuf("packages/tts-core/.turbo")}
+2026-03-27T15:49:08.177822Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/api-gateway"), path: AnchoredSystemPathBuf("apps/api-gateway") }, WorkspacePackage { name: Other("@voice-platform/streaming-service"), path: AnchoredSystemPathBuf("apps/streaming-service") }, WorkspacePackage { name: Other("@voice-platform/tts-service"), path: AnchoredSystemPathBuf("apps/tts-service") }, WorkspacePackage { name: Other("@voice-platform/agent-service"), path: AnchoredSystemPathBuf("apps/agent-service") }, WorkspacePackage { name: Other("@voice-platform/audio-utils"), path: AnchoredSystemPathBuf("packages/audio-utils") }, WorkspacePackage { name: Other("@voice-platform/tts-core"), path: AnchoredSystemPathBuf("packages/tts-core") }}))
+2026-03-27T15:49:08.183189Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:49:08.183212Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:49:19.677108Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("tsconfig.base.json")}
+2026-03-27T15:49:19.677125Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:49:21.576339Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/tts-core/package.json")}
+2026-03-27T15:49:21.576355Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-core"), path: AnchoredSystemPathBuf("packages/tts-core") }}))
+2026-03-27T15:49:23.476854Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/audio-utils/package.json")}
+2026-03-27T15:49:23.476873Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/audio-utils"), path: AnchoredSystemPathBuf("packages/audio-utils") }}))
+2026-03-27T15:49:25.477394Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/adapters/package.json")}
+2026-03-27T15:49:25.477414Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/adapters"), path: AnchoredSystemPathBuf("packages/adapters") }}))
+2026-03-27T15:49:28.276972Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_5986_25724cc2311a9c12575f420b14c742fb")}
+2026-03-27T15:49:28.276996Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:49:34.377408Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.682988746")}
+2026-03-27T15:49:34.377426Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:49:34.476675Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.682988746")}
+2026-03-27T15:49:34.476693Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:49:37.481137Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/shared-types/dist"), AnchoredSystemPathBuf("packages/database/dist"), AnchoredSystemPathBuf("packages/database/.turbo"), AnchoredSystemPathBuf("packages/shared-types/.turbo")}
+2026-03-27T15:49:37.481158Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/database"), path: AnchoredSystemPathBuf("packages/database") }, WorkspacePackage { name: Other("@voice-platform/shared-types"), path: AnchoredSystemPathBuf("packages/shared-types") }}))
+2026-03-27T15:49:37.481191Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:49:37.481206Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:49:50.476353Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/api-gateway/tsconfig.json")}
+2026-03-27T15:49:50.476367Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/api-gateway"), path: AnchoredSystemPathBuf("apps/api-gateway") }}))
+2026-03-27T15:49:52.476706Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/tts-service/tsconfig.json")}
+2026-03-27T15:49:52.476759Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-service"), path: AnchoredSystemPathBuf("apps/tts-service") }}))
+2026-03-27T15:49:54.475662Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/agent-service/tsconfig.json")}
+2026-03-27T15:49:54.475676Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/agent-service"), path: AnchoredSystemPathBuf("apps/agent-service") }}))
+2026-03-27T15:49:56.576363Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/streaming-service/tsconfig.json")}
+2026-03-27T15:49:56.576381Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/streaming-service"), path: AnchoredSystemPathBuf("apps/streaming-service") }}))
+2026-03-27T15:49:59.377147Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_6097_0c8100108ea68a884c889e9b6473d4fb")}
+2026-03-27T15:49:59.377162Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-03-27T15:50:03.275835Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/database/dist"), AnchoredSystemPathBuf("packages/shared-types/.turbo"), AnchoredSystemPathBuf("packages/database/.turbo"), AnchoredSystemPathBuf("packages/shared-types/dist")}
+2026-03-27T15:50:03.275855Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/shared-types"), path: AnchoredSystemPathBuf("packages/shared-types") }, WorkspacePackage { name: Other("@voice-platform/database"), path: AnchoredSystemPathBuf("packages/database") }}))
+2026-03-27T15:50:03.294925Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:50:03.298674Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:50:03.376943Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/shared-types/dist")}
+2026-03-27T15:50:03.376971Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/shared-types"), path: AnchoredSystemPathBuf("packages/shared-types") }}))
+2026-03-27T15:50:03.377002Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:50:06.776014Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/tts-core/dist"), AnchoredSystemPathBuf("packages/tts-core/tsconfig.tsbuildinfo")}
+2026-03-27T15:50:06.776033Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-core"), path: AnchoredSystemPathBuf("packages/tts-core") }}))
+2026-03-27T15:50:06.876906Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/adapters/.turbo")}
+2026-03-27T15:50:06.876931Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/adapters"), path: AnchoredSystemPathBuf("packages/adapters") }}))
+2026-03-27T15:50:06.876982Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:50:08.982074Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/tts-service/dist")}
+2026-03-27T15:50:08.982096Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-service"), path: AnchoredSystemPathBuf("apps/tts-service") }}))
+2026-03-27T15:50:09.080550Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/tts-service/tsconfig.tsbuildinfo")}
+2026-03-27T15:50:09.080573Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-service"), path: AnchoredSystemPathBuf("apps/tts-service") }}))
+2026-03-27T15:50:09.080604Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:50:10.276698Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/api-gateway/tsconfig.tsbuildinfo"), AnchoredSystemPathBuf("apps/api-gateway/dist")}
+2026-03-27T15:50:10.276722Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/api-gateway"), path: AnchoredSystemPathBuf("apps/api-gateway") }}))
+2026-03-27T15:50:10.676419Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/audio-utils/tsconfig.tsbuildinfo"), AnchoredSystemPathBuf("packages/audio-utils/dist")}
+2026-03-27T15:50:10.676441Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/audio-utils"), path: AnchoredSystemPathBuf("packages/audio-utils") }}))
+2026-03-27T15:50:10.876429Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/agent-service/dist")}
+2026-03-27T15:50:10.876450Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/agent-service"), path: AnchoredSystemPathBuf("apps/agent-service") }}))
+2026-03-27T15:50:10.877821Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:50:10.976449Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/agent-service/tsconfig.tsbuildinfo")}
+2026-03-27T15:50:10.976469Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/agent-service"), path: AnchoredSystemPathBuf("apps/agent-service") }}))
+2026-03-27T15:50:11.376130Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/streaming-service/tsconfig.tsbuildinfo"), AnchoredSystemPathBuf("apps/streaming-service/dist")}
+2026-03-27T15:50:11.376151Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/streaming-service"), path: AnchoredSystemPathBuf("apps/streaming-service") }}))
+2026-03-27T15:50:11.877508Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("workers/tts-worker/.turbo"), AnchoredSystemPathBuf("packages/adapters/tsconfig.tsbuildinfo"), AnchoredSystemPathBuf("packages/adapters/dist")}
+2026-03-27T15:50:11.877526Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/adapters"), path: AnchoredSystemPathBuf("packages/adapters") }, WorkspacePackage { name: Other("@voice-platform/tts-worker"), path: AnchoredSystemPathBuf("workers/tts-worker") }}))
+2026-03-27T15:50:11.877562Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:50:13.976239Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("workers/tts-worker/dist")}
+2026-03-27T15:50:13.976253Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-worker"), path: AnchoredSystemPathBuf("workers/tts-worker") }}))
+2026-03-27T15:50:14.076759Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("workers/tts-worker/tsconfig.tsbuildinfo")}
+2026-03-27T15:50:14.076774Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/tts-worker"), path: AnchoredSystemPathBuf("workers/tts-worker") }}))
+2026-03-27T15:50:14.076795Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2026-03-27T15:56:58.355861Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/database/test-connection.js")}
+2026-03-27T15:56:58.355885Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/database"), path: AnchoredSystemPathBuf("packages/database") }}))
+2026-03-27T15:57:11.356839Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/database/test-connection.js")}
+2026-03-27T15:57:11.356858Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@voice-platform/database"), path: AnchoredSystemPathBuf("packages/database") }}))

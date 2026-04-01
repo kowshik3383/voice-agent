@@ -10,11 +10,18 @@ import * as path from 'path';
 import * as os from 'os';
 import { MinioAdapter } from '@voice-platform/adapters';
 import { fileTypeFromFile } from 'file-type';
+import { validatorCompiler, serializerCompiler, ZodTypeProvider } from 'fastify-type-provider-zod';
+import { z } from 'zod';
+import swagger from '@fastify/swagger';
+import swaggerUI from '@fastify/swagger-ui';
 
-const fastify = Fastify({ logger: true });
+const fastify = Fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
 const prisma = new PrismaClient();
 const redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
 const voiceQueue = new Queue('voice-queue', { connection: redis });
+
+fastify.setValidatorCompiler(validatorCompiler);
+fastify.setSerializerCompiler(serializerCompiler);
 
 const minioClient = new MinioAdapter({
   endpoint: process.env.MINIO_ENDPOINT || 'localhost',
@@ -24,13 +31,44 @@ const minioClient = new MinioAdapter({
   bucket: 'voice-platform'
 });
 
+// Register Internal Swagger
+fastify.register(swagger, {
+  openapi: {
+    info: {
+      title: 'Voice Training Service (Internal)',
+      version: '1.0.0',
+    },
+  },
+});
+
+fastify.register(swaggerUI, {
+  routePrefix: '/internal-docs',
+});
+
 fastify.register(multipart, {
   limits: {
     fileSize: 100 * 1024 * 1024 // 100MB limit for audio
   }
 });
 
-fastify.post('/upload', async (request, reply) => {
+fastify.post('/upload', {
+  schema: {
+    tags: ['Internal'],
+    summary: 'Internal endpoint for voice uploads',
+    description: 'This endpoint is proxied by the API Gateway.',
+    body: z.object({
+      name: z.string().min(1),
+    }),
+    response: {
+      200: z.object({
+        data: z.object({
+          voice_id: z.string(),
+          status: z.string()
+        })
+      })
+    }
+  }
+}, async (request, reply) => {
   const data = await request.file();
   if (!data) {
     return reply.status(400).send({
@@ -129,6 +167,7 @@ const start = async () => {
   try {
     await fastify.listen({ port: 8002, host: '0.0.0.0' });
     console.log('Voice Training Service (Node.js) listening on port 8002');
+    console.log('Internal docs: http://localhost:8002/internal-docs');
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);

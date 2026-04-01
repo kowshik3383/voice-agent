@@ -8,17 +8,23 @@
     "dev": "ts-node-dev src/index.ts"
   },
   "dependencies": {
-    "fastify": "^4.21.0",
     "@fastify/http-proxy": "^9.1.0",
     "@fastify/rate-limit": "^8.0.3",
+    "@fastify/reply-from": "^12.6.1",
+    "@fastify/swagger": "^9.7.0",
+    "@fastify/swagger-ui": "^5.2.5",
     "@voice-platform/database": "workspace:*",
     "@voice-platform/shared-types": "workspace:*",
+    "fastify": "^4.21.0",
+    "fastify-type-provider-zod": "^6.1.0",
     "pino": "^8.14.1",
-    "prom-client": "^14.2.0"
+    "prom-client": "^14.2.0",
+    "zod": "^3.25.76",
+    "zod-to-json-schema": "^3.25.2"
   },
   "devDependencies": {
-    "typescript": "^5.1.6",
     "@types/node": "^20.4.5",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.6"
   }
 }

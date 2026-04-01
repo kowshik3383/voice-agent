@@ -27,10 +27,10 @@ fastify.post('/tts', async (request, reply) => {
       const voice = await prisma.voice.findUnique({
         where: { id: speechConfig.voice_id }
       });
-      if (!voice) {
+      if (!voice || voice.status !== 'ready') {
         return reply.status(404).send({
           error: {
-            message: 'Voice not found',
+            message: voice ? 'Voice is still training' : 'Voice not found',
             type: 'invalid_request_error'
           }
         });

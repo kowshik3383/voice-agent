@@ -1,3 +1,6 @@
+export * from './validator';
+export * from './processor';
+
 export function chunkText(text: string): string[] {
   // Simple sentence-based chunking
   // In a production system, this would be more robust (regexp for various punctuation)

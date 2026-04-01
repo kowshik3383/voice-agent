@@ -9,6 +9,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
 import { MinioAdapter } from '@voice-platform/adapters';
+import { fileTypeFromFile } from 'file-type';
 
 const fastify = Fastify({ logger: true });
 const prisma = new PrismaClient();
@@ -38,11 +39,13 @@ fastify.post('/upload', async (request, reply) => {
   }
 
   const name = (data.fields.name as any)?.value || 'Custom Voice';
+  // P0 Fix: Sanitize filename and use UUID for internal path
+  const sanitizedFilename = path.basename(data.filename).replace(/[^a-z0-9.]/gi, '_');
   const voiceId = uuidv4();
   const tempDir = path.join(os.tmpdir(), voiceId);
   fs.mkdirSync(tempDir, { recursive: true });
 
-  const rawPath = path.join(tempDir, data.filename);
+  const rawPath = path.join(tempDir, sanitizedFilename);
   
   try {
     // 1. Save uploaded file to temp
@@ -52,6 +55,18 @@ fastify.post('/upload', async (request, reply) => {
       data.file.on('end', resolve);
       data.file.on('error', reject);
     });
+
+    // P1 Fix: MIME Magic Byte Validation
+    const type = await fileTypeFromFile(rawPath);
+    const allowedMimeTypes = ['audio/mpeg', 'audio/wav', 'audio/x-wav', 'audio/ogg'];
+    if (!type || !allowedMimeTypes.includes(type.mime)) {
+      return reply.status(400).send({
+        error: { 
+          message: `Unsupported file type: ${type?.mime || 'unknown'}. Please upload MP3, WAV, or OGG.`, 
+          type: 'invalid_request_error' 
+        }
+      });
+    }
 
     // 2. Validate Duration
     const { duration, isValid, error } = await validateAudioRequirements(rawPath);

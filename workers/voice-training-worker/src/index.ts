@@ -39,14 +39,31 @@ const worker = new Worker('voice-queue', async (job: Job) => {
     // 2. Preprocess to 16kHz mono WAV
     await convertToWav(rawPath, wavPath);
 
-    // 3. Run Python training script
+    // 3. Run Python training script SECURELY (P0 Fix)
     const pyScript = path.join(__dirname, '..', 'train.py');
-    const cmd = `python3 ${pyScript} ${voiceId} ${wavPath} ${outputDir}`;
+    const args = [pyScript, voiceId, wavPath, outputDir];
     
-    console.log(`Executing training script: ${cmd}`);
-    const { stdout, stderr } = await execPromise(cmd);
+    console.log(`Executing training script: python3 ${args.join(' ')}`);
+    
+    const { spawn } = require('child_process');
+    const child = spawn('python3', args);
+
+    let stdout = '';
+    let stderr = '';
+
+    child.stdout.on('data', (data: Buffer) => { stdout += data.toString(); });
+    child.stderr.on('data', (data: Buffer) => { stderr += data.toString(); });
+
+    const exitCode = await new Promise((resolve) => {
+      child.on('close', resolve);
+    });
+
     console.log(`Python stdout: ${stdout}`);
     if (stderr) console.error(`Python stderr: ${stderr}`);
+
+    if (exitCode !== 0) {
+      throw new Error(`Training script failed with exit code ${exitCode}`);
+    }
 
     // 4. Upload config.pth and sample.wav back to MinIO (optional, but good for portability)
     const configPath = path.join(outputDir, 'config.pth');

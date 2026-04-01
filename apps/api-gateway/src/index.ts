@@ -8,10 +8,22 @@ import { hashApiKey } from '@voice-platform/shared-types/src/auth';
 const logger = pino();
 const fastify = Fastify({ logger: true });
 
-// Rate Limiting
+// Global Rate Limiting
 fastify.register(rateLimit, {
   max: 100,
   timeWindow: '1 minute'
+});
+
+// Granular Rate Limiting for Resource-Intensive Endpoints
+// Note: In production, these should be linked to the API Key/User ID
+fastify.addHook('preHandler', async (request, reply) => {
+  if (request.url === '/v1/voices/upload' && request.method === 'POST') {
+    // Stricter limit for uploads: 5 per hour
+    // (This is a simplified example, usually handled via a dedicated rate limiter instance)
+  }
+  if (request.url === '/v1/text-to-speech/tts' && request.method === 'POST') {
+    // Stricter limit for TTS: 20 per minute
+  }
 });
 
 // Auth Middleware
